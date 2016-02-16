@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Wake</title>
+</head>
+<body>
+
+<h1>Request Dump</h1>
+<h3>Total of <span th:text="${traces.size()}"></span> traces</h3>
+<ul>
+    <li th:each="trace : ${traces}">
+        <strong th:text="${trace.timestamp}"></strong> --
+        <span th:each="param : ${trace.info}">
+            <span th:text="${param.key}"></span>
+            :
+            <span th:text="${param.value}"></span>
+        </span>
+    </li>
+</ul>
+</body>
+</html>
